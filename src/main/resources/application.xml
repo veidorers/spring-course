@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="PostgreSQLDriver"/>
+    </bean>
+
+    <bean id="pool1" class="com.example.database.pool.ConnectionPool">
+        <constructor-arg index="3" name="properties">
+            <map>
+                <entry key="url" value="db_url"/>
+                <entry key="username" value="db_username"/>
+                <entry key="password" value="db_password"/>
+            </map>
+        </constructor-arg>
+
+        <constructor-arg index="1" name="poolSize" value="10"/>
+
+        <constructor-arg index="2" name="args">
+            <list>
+                <value>value1</value>
+                <value>value2</value>
+                <value>value3</value>
+            </list>
+        </constructor-arg>
+
+        <constructor-arg index="0" name="username" value="John"/>
+    </bean>
+</beans>
